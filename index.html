@@ -23,7 +23,7 @@ input,textarea,select{width:100%;padding:5px;border:1px solid #999}
 </style>
 </head>
 <body>
-   
+    
 <div class="loginPage" id="loginDiv">
 <h2 align="center">LOCAL PYD REPORT FORM <BR>2026</h2>
 <select id="userSelect"></select>
@@ -187,7 +187,7 @@ span.style.cssText='font-weight:bold;border-bottom:1px dotted #000;padding:2px 6
 span.textContent=val||'________';
 el.parentNode.replaceChild(span,el);
 });
-let finalHtml=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cur.name}_report_form_2026</title><style>body{font-family:Arial;padding:20px;max-width:1000px;margin:auto} table{width:100%;border-collapse:collapse} th,td{border:1px solid #000;padding:6px} .sec{font-weight:bold;background:#eee;padding:6px;margin-top:15px}</style></head><body><p><p>Generated on: ${new Date().toLocaleString()} - To Secretary WhatsApp 9362666588</p></body></html>`;
+let finalHtml=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cur.name}_report_form_2026</title><style>body{font-family:Arial;padding:20px;max-width:1000px;margin:auto} table{width:100%;border-collapse:collapse} th,td{border:1px solid #000;padding:6px} .sec{font-weight:bold;background:#eee;padding:6px;margin-top:15px}</style></head><body><h2 style="text-align:center">PYD FINAL REPORT 2026 - ${cur.name}</h2><p><b>Local:</b> ${cur.name} | <b></b> ${document.getElementById('totalMemberZat').value} | <b>Date:</b> ${document.getElementById('TodayDate').value} | <b></b> ${document.getElementById('p_total').value}</p><hr>${clone.innerHTML}<hr><p>Generated: ${new Date().toLocaleString()} - To WhatsApp 9362666588</p></body></html>`;
 let fileName=`${cur.name}_REPORT_FORM_2026.html`;
 let blob=new Blob([finalHtml],{type:'text/html'});
 let file=new File([blob],fileName,{type:'text/html'});
