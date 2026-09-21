@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PYD REPORT FORM 2026</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;font-family:Arial;padding:0}
+.loginPage{max-width:420px;margin:60px auto;padding:28px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.loginPage select,.loginPage input,.loginPage button{width:100%;padding:12px;margin-top:8px;border:1px solid #ccc;border-radius:8px}
+.loginPage button{background:#1565c0;color:#fff;font-weight:bold;border:none}
+.err{display:none;color:red;text-align:center;margin-top:8px}
+.formPage{display:none;width:100%;padding:15px 20px}
+.hdr{text-align:center;border-bottom:3px double #000;padding-bottom:10px}
+.hdr h2{color:#c00000;margin:0}.hdr h3{color:#00b0f0;margin:0}
+.sec{background:#eee;padding:7px 10px;margin-top:20px;border-left:4px solid #c00000;font-weight:bold}
+table{width:100%;border-collapse:collapse;margin-top:8px}th,td{border:1px solid #000;padding:5px;font-size:14px}th{background:#f5f5f5}
+input,textarea,select{width:100%;padding:5px;border:1px solid #999}
+.autoIn{background:#e3f2fd;font-weight:bold}.calc{background:#fff9c4!important;text-align:center;font-weight:bold}.total{background:#bbdefb!important;text-align:center;font-weight:bold;border:2px solid #1565c0!important}
+.flexRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.flexRow div{flex:1;min-width:200px}
+.btnBar{position:sticky;bottom:0;background:#fff;padding:12px;text-align:center;border-top:2px solid #000}
+.btnBar button{padding:12px 20px;margin:4px;border:none;border-radius:6px;color:#fff;font-weight:bold;cursor:pointer}
+.btnWA{background:#25D366;font-size:16px}.btnPrint{background:#4caf50}.btnOut{background:#888}
+</style>
+</head>
+<body>
+    <center><p></p><img src="file:///E:/MY%20PRIVATE/Adobe/pydlogo1.png" width="500" height="400" alt="PYDLOGO"></center>
+<div class="loginPage" id="loginDiv">
+<h2 align="center">LOCAL PYD REPORT FORM <BR>2026</h2>
+<select id="userSelect"></select>
+<input type="password" id="passInput" placeholder="Password">
+<button onclick="doLogin()">Login</button>
+<div id="errMsg" class="err">Password andik nawh</div>
+</div>
+
+<div class="formPage" id="formDiv">
+<div id="captureArea">
+<div class="hdr"><h2>BARAK DISTRICT PYD REPORT 2026</h2><h3>UPC NEI</h3><div>Reporting period : 20th Sept - 15th Oct 2026</div><h2 style="color:blue">LOCAL: <span id="getUserNameShow"></span></h2></div>
+
+<div class="sec">1. LOCAL HMING : <span id="getUserNameShow1"></span></div>
+<div class="flexRow"><div>Chairman <input></div><div>Phone Number <input></div></div>
+
+<div class="sec">2. LOCAL PYD OFFICIALS</div>
+<table><tr><td>a. President <input></td><td>Ph <input></td></tr><tr><td>b. Vice President <input></td><td>Ph <input></td></tr><tr><td>c. Secretary <input></td><td>Ph <input></td></tr><tr><td>d. Asst Secretary <input></td><td>Ph <input></td></tr><tr><td>e. Treasurer <input></td><td>Ph <input></td></tr><tr><td>f. Fin Sec (option) <input></td><td>Ph <input></td></tr></table>
+
+<div class="sec">3. PYD DAY DAKBAWM</div>
+<table><tr><th>Hming</th><th>Pa hming</th><th>Amount</th></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr></table>
+
+<div class="sec">4. FAIṬHAM</div>
+<table><tr><th>Hming</th><th>Pa hming</th><th>Amount</th></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr><tr><td><input></td><td><input></td><td><input type="number"></td></tr></table>
+
+<div class="sec">5. PYD DAY HMANG DAN </div><textarea></textarea>
+<div class="sec">6. SOCIAL WORK DAY</div><textarea></textarea>
+
+<div class="sec">7. STARISTICS: </div>
+<table>
+<tr><th>Sl</th><th>Particular</th><th>Pasal </th><th>Nuhmei </th><th>Total </th></tr>
+<tr><td>1</td><td>2025 member zat</td><td><input type="number" id="c1" oninput="doCalc()"></td><td><input type="number" id="c1b" oninput="doCalc()"></td><td><input id="r1" class="calc" readonly></td></tr>
+<tr><td>2</td><td>Pungna zat</td><td><input type="number" id="c3" oninput="doCalc()"></td><td><input type="number" id="c4" oninput="doCalc()"></td><td><input id="r2" class="calc" readonly></td></tr>
+<tr><td>3</td><td>PYD Member po po zat</td><td><input type="number" id="c5"></td><td><input type="number" id="c6"></td><td><input id="totalMemberZat" class="total" readonly></td></tr>
+<tr><td>4</td><td>Kohran dan anga innei</td><td><input type="number" id="c7" oninput="doCalc()"></td><td><input type="number" id="c8" oninput="doCalc()"></td><td><input id="r3" class="calc" readonly></td></tr>
+<tr><td>5</td><td>Kohran dan naw anga innei</td><td><input type="number" id="c9" oninput="doCalc()"></td><td><input type="number" id="c10" oninput="doCalc()"></td><td><input id="r4" class="calc" readonly></td></tr>
+<tr><td>6</td><td>Thlarau thienghlim dawng thar</td><td><input type="number" id="c11" oninput="doCalc()"></td><td><input type="number" id="c12" oninput="doCalc()"></td><td><input id="r5" class="calc" readonly></td></tr>
+<tr><td>7</td><td>Thlarau thienghlim dawng ta po</td><td><input type="number" id="c13" oninput="doCalc()"></td><td><input type="number" id="c14" oninput="doCalc()"></td><td><input id="r6" class="calc" readonly></td></tr>
+<tr><td>8</td><td>Hmuom le hawp thaw naw</td><td><input type="number" id="c15" oninput="doCalc()"></td><td><input type="number" id="c16" oninput="doCalc()"></td><td><input id="r7" class="calc" readonly></td></tr>
+</table>
+
+<div class="sec">8. ṬHUOITU HLUN CHAWIMAWINA</div>
+<div class="flexRow"><div>1. Bro/Sis <input></div><div>Designation <input></div><div>From <select class="dSel"></select><select class="mSel"></select><select class="ySel"></select></div><div>To <select class="dSel"></select><select class="mSel"></select><select class="ySel"></select></div></div> <br>
+<div class="flexRow"><div>2. Bro/Sis <input></div><div>Designation <input></div><div>From <select class="dSel"></select><select class="mSel"></select><select class="ySel"></select></div><div>To <select class="dSel"></select><select class="mSel"></select><select class="ySel"></select></div></div>
+
+<div class="sec">9. 2026 SÛNGA PYD MEMBER FAMCHANGHAI</div>
+<table><tr><td>Hming <input></td><td>Pa hming <input></td><td>Local <input id="autoLocal1" class="autoIn" readonly></td><td>Date <input type="date"></td></tr><tr><td>Hming <input></td><td>Pa hming <input></td><td>Local <input id="autoLocal2" class="autoIn" readonly></td><td>Date <input type="date"></td></tr></table>
+
+<div class="sec">10. SUM-LE-PAI TIENG</div>
+<table>
+<tr><th>Particular</th><th>Target tukzat</th><th>Submit zat</th></tr>
+<tr><td>2026 Local PYD target</td><td><input id="gettarget" class="autoIn" readonly></td><td><input type="number" id="p_target" oninput="doCalc()"></td></tr>
+<tr><td>Bamboo Project</td><td><input id="getbamboo" class="autoIn" readonly></td><td><input type="number" id="p_bamboo" oninput="doCalc()"></td></tr>
+<tr><td>Project for land</td><td><input id="getproject" class="autoIn" readonly></td><td><input type="number" id="p_project" oninput="doCalc()"></td></tr>
+<tr><td>Conference fund</td><td><input id="getfund" class="autoIn" readonly></td><td><input type="number" id="p_fund" oninput="doCalc()"></td></tr>
+<tr><td>Golden jubilee</td><td><input id="getjubilee" class="autoIn" readonly></td><td><input type="number" id="p_jubilee" oninput="doCalc()"></td></tr>
+<tr><td>Membership fee</td><td><input id="getMembership" class="autoIn" readonly></td><td><input type="number" id="p_mem" oninput="doCalc()"></td></tr>
+<tr><td>PYD Day dakbawm</td><td><input id="getenvlope" class="autoIn" readonly></td><td><input type="number" id="p_env" oninput="doCalc()"></td></tr>
+<tr><td>Total </td><td><input id="gettotal" class="total" readonly></td><td><input id="p_total" class="total" readonly></td></tr>
+</table>
+
+<div class="sec">11. 2026 SÛNGA LOCAL PYD RAWNGBAWLNA</div><textarea></textarea>
+<div class="sec">12. AGENDA DINGHAI</div>1<textarea></textarea>2<textarea></textarea>3<textarea></textarea>
+
+<div class="sec">13. INCHÛKNA TIENGA HLAWTLINGNA CHANG:</div>
+<table><tr><th>Hming</th><th>Pa hming</th><th>Class</th><th>Board</th><th>Div</th><th>%</th></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+</table>
+
+<div class="sec">14. SORKAR SIN HMU THAR:</div>
+<table><tr><th>Hming</th><th>Pa hming</th><th>Job title</th><th>Location</th></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+</table>
+
+<div class="flexRow" style="margin-top:15px;border-top:2px solid #000;padding-top:10px">
+<div>Dated <input id="TodayDate" class="autoIn" readonly></div>
+<div>Reported by <input></div>
+<div>Designation <select id="DESIGNATION"><option>President</option><option>VP</option><option>Secretary</option><option>Asst Sec</option><option>Treasurer</option></select></div>
+</div>
+</div>
+
+<div class="btnBar">
+<button class="btnPrint" onclick="window.print()">Print</button>
+<button class="btnWA" onclick="generateAndSend()">SUBMIT</button>
+<button class="btnOut" onclick="location.reload()">Logout</button>
+</div>
+</div>
+
+<script>
+const users=[
+{name:"Gilgal",password:"p.gg2026",data:{totalMember:105,target:19400,bamboo:200,project:3400,fund:1000,jubilee:4000,membership:1050,envlope:0}},
+{name:"Tabernacle",password:"tab.y2026",data:{totalMember:32,target:3000,bamboo:1000,project:2000,fund:800,jubilee:1500,membership:320,envlope:0}},
+{name:"Jorkha",password:"d.jor2026",data:{totalMember:37,target:4000,bamboo:1500,project:2500,fund:900,jubilee:1800,membership:370,envlope:0}},
+{name:"Hmarkhawlien",password:"hkl.p2026",data:{totalMember:49,target:4500,bamboo:1800,project:2800,fund:950,jubilee:1900,membership:490,envlope:0}},
+{name:"Chikhur",password:"y.ck2026",data:{totalMember:56,target:4800,bamboo:1900,project:2900,fund:1000,jubilee:2000,membership:560,envlope:0}},
+{name:"Bethel",password:"pyd.b2026",data:{totalMember:20,target:2500,bamboo:800,project:1500,fund:600,jubilee:1200,membership:200,envlope:0}},
+{name:"Zoar",password:"zoar.d2026",data:{totalMember:10,target:1500,bamboo:500,project:1000,fund:400,jubilee:800,membership:100,envlope:0}},
+{name:"Tlangmawi",password:"pyd.tm2026",data:{totalMember:10,target:1500,bamboo:500,project:1000,fund:400,jubilee:800,membership:100,envlope:0}}
+];
+let cur=null;
+const sel=document.getElementById('userSelect');
+users.forEach(u=>{let o=document.createElement('option');o.value=u.name;o.textContent=u.name;sel.appendChild(o);});
+document.querySelectorAll('.dSel').forEach(s=>{for(let i=1;i<=31;i++){let o=document.createElement('option');o.value=i;o.textContent=i;s.appendChild(o);}});
+document.querySelectorAll('.mSel').forEach(s=>{for(let i=1;i<=12;i++){let o=document.createElement('option');o.value=i;o.textContent=i;s.appendChild(o);}});
+document.querySelectorAll('.ySel').forEach(s=>{for(let i=2000;i<=2026;i++){let o=document.createElement('option');o.value=i;o.textContent=i;if(i==2026)o.selected=true;s.appendChild(o);}});
+function doLogin(){
+let n=sel.value,p=document.getElementById('passInput').value;
+let u=users.find(x=>x.name===n);
+if(u&&u.password===p){cur=u;
+document.getElementById('loginDiv').style.display='none';
+document.getElementById('formDiv').style.display='block';
+document.getElementById('getUserNameShow').innerText=u.name;
+document.getElementById('getUserNameShow1').innerText=u.name;
+document.getElementById('autoLocal1').value=u.name;
+document.getElementById('autoLocal2').value=u.name;
+document.getElementById('gettarget').value=u.data.target;
+document.getElementById('getbamboo').value=u.data.bamboo;
+document.getElementById('getproject').value=u.data.project;
+document.getElementById('getfund').value=u.data.fund;
+document.getElementById('getjubilee').value=u.data.jubilee;
+document.getElementById('getMembership').value=u.data.membership;
+document.getElementById('getenvlope').value=u.data.envlope;
+document.getElementById('gettotal').value=u.data.target+u.data.bamboo+u.data.project+u.data.fund+u.data.jubilee;
+document.getElementById('totalMemberZat').value=u.data.totalMember;
+document.getElementById('TodayDate').value=new Date().toLocaleDateString('en-GB');
+doCalc();
+}else{document.getElementById('errMsg').style.display='block';}
+}
+function doCalc(){
+let v=id=>parseInt(document.getElementById(id).value||0);
+document.getElementById('r1').value=v('c1')+v('c1b');
+document.getElementById('r2').value=v('c3')+v('c4');
+document.getElementById('r3').value=v('c7')+v('c8');
+document.getElementById('r4').value=v('c9')+v('c10');
+document.getElementById('r5').value=v('c11')+v('c12');
+document.getElementById('r6').value=v('c13')+v('c14');
+document.getElementById('r7').value=v('c15')+v('c16');
+document.getElementById('p_total').value=v('p_target')+v('p_bamboo')+v('p_project')+v('p_fund')+v('p_jubilee');
+}
+async function generateAndSend(){
+let area=document.getElementById('captureArea');
+let clone=area.cloneNode(true);
+clone.querySelectorAll('input,textarea,select').forEach(el=>{
+let val=el.value;
+if(el.tagName==='SELECT') val=el.options[el.selectedIndex]?.text||el.value;
+let span=document.createElement('span');
+span.style.cssText='font-weight:bold;border-bottom:1px dotted #000;padding:2px 6px;display:inline-block;min-width:60px;white-space:pre-wrap';
+span.textContent=val||'________';
+el.parentNode.replaceChild(span,el);
+});
+let finalHtml=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${cur.name}_report_form_2026</title><style>body{font-family:Arial;padding:20px;max-width:1000px;margin:auto} table{width:100%;border-collapse:collapse} th,td{border:1px solid #000;padding:6px} .sec{font-weight:bold;background:#eee;padding:6px;margin-top:15px}</style></head><body><h2 style="text-align:center">PYD FINAL REPORT 2026 - ${cur.name}</h2><p><b>Local:</b> ${cur.name} | <b>Total Member (**):</b> ${document.getElementById('totalMemberZat').value} | <b>Date:</b> ${document.getElementById('TodayDate').value} | <b>Total Paid:</b> ${document.getElementById('p_total').value}</p><hr>${clone.innerHTML}<hr><p>Generated: ${new Date().toLocaleString()} - To WhatsApp 9362666588</p></body></html>`;
+let fileName=`${cur.name}_REPORT_FORM_2026.html`;
+let blob=new Blob([finalHtml],{type:'text/html'});
+let file=new File([blob],fileName,{type:'text/html'});
+if(navigator.canShare && navigator.canShare({files:[file]})){
+try{await navigator.share({files:[file],title:fileName,text:`${cur.name} PYD Report Form 2026`});return;}catch(e){}
+}
+let url=URL.createObjectURL(blob);
+let a=document.createElement('a');a.href=url;a.download=fileName;a.click();
+setTimeout(()=>{window.open(`https://wa.me/919362666588?text=${encodeURIComponent(`*${cur.name} REPORT FORM 2026*%0AFile: ${fileName}%0ATotal Member: ${document.getElementById('totalMemberZat').value}%0APaid: ${document.getElementById('p_total').value}%0ADate: ${document.getElementById('TodayDate').value}%0A%0AHtml file download a ni tawh, heta attach rawh.`)}`,'_blank');},600);
+}
+</script>
+</body>
+</html>
