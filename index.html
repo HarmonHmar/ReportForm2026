@@ -35,7 +35,7 @@ input,textarea,select{width:100%;padding:5px;border:1px solid #999}
 <div class="formPage" id="formDiv">
 <div id="captureArea">
      <center><p></p><img src="https://raw.githubusercontent.com/HarmonHmar/ReportForm2026/main/pydlogo1.png" style="width:200px; height:auto;" alt="PYD Logo"></center>
-<div class="hdr"><h2>BARAK DISTRICT PYD REPORT 2026</h2><h3>UPC NEI</h3><div>Reporting period : 20th Sept - 15th Oct 2026</div><h2 style="color:blue">LOCAL: <span id="getUserNameShow"></span></h2></div>
+<div class="hdr"><h2>BARAK DISTRICT PYD REPORT 2026</h2><h3>UPC NEI</h3><div>Reporting period : 01st - 15th Oct 2026</div><h2 style="color:blue">LOCAL: <span id="getUserNameShow"></span></h2></div>
 
 <div class="sec">1. LOCAL HMING : <span id="getUserNameShow1"></span></div>
 <div class="flexRow"><div>Chairman <input></div><div>Phone Number <input></div></div>
@@ -127,14 +127,14 @@ input,textarea,select{width:100%;padding:5px;border:1px solid #999}
 
 <script>
 const users=[
-{name:"Gilgal",password:"p.gg2026",data:{totalMember:105,target:19400,bamboo:200,project:3400,fund:1000,jubilee:4000,membership:1050,envlope:0}},
-{name:"Tabernacle",password:"tab.y2026",data:{totalMember:32,target:3000,bamboo:1000,project:2000,fund:800,jubilee:1500,membership:320,envlope:0}},
-{name:"Jorkha",password:"d.jor2026",data:{totalMember:37,target:4000,bamboo:1500,project:2500,fund:900,jubilee:1800,membership:370,envlope:0}},
-{name:"Hmarkhawlien",password:"hkl.p2026",data:{totalMember:49,target:4500,bamboo:1800,project:2800,fund:950,jubilee:1900,membership:490,envlope:0}},
-{name:"Chikhur",password:"y.ck2026",data:{totalMember:56,target:4800,bamboo:1900,project:2900,fund:1000,jubilee:2000,membership:560,envlope:0}},
-{name:"Bethel",password:"pyd.b2026",data:{totalMember:20,target:2500,bamboo:800,project:1500,fund:600,jubilee:1200,membership:200,envlope:0}},
-{name:"Zoar",password:"zoar.d2026",data:{totalMember:10,target:1500,bamboo:500,project:1000,fund:400,jubilee:800,membership:100,envlope:0}},
-{name:"Tlangmawi",password:"pyd.tm2026",data:{totalMember:10,target:1500,bamboo:500,project:1000,fund:400,jubilee:800,membership:100,envlope:0}}
+{name:"Gilgal",password:"p.gg2026",data:{totalMember:105,target:19400,bamboo:200,project:3400,fund:1000,jubilee:4000,membership:1050,envlope:1000}},
+{name:"Tabernacle",password:"tab.y2026",data:{totalMember:29,target:10650,bamboo:150,project:1500,fund:500,jubilee:900,membership:290,envlope:900}},
+{name:"Jorkha",password:"d.jor2026",data:{totalMember:0,target:11850,bamboo:100,project:2750,fund:800,jubilee:1800,membership:0,envlope:0}},
+{name:"Hmarkhawlien",password:"hkl.p2026",data:{totalMember:49,target:19400,bamboo:200,project:3400,fund:1000,jubilee:4000,membership:490,envlope:550}},
+{name:"Chikhur",password:"y.ck2026",data:{totalMember:15,target:1370,bamboo:150,project:2500,fund:1000,jubilee:2300,membership:150,envlope:1110}},
+{name:"Bethel",password:"pyd.b2026",data:{totalMember:19,target:1500,bamboo:100,project:100,fund:200,jubilee:100,membership:190,envlope:0}},
+{name:"Zoar",password:"zoar.d2026",data:{totalMember:0,target:6700,bamboo:100,project:600,fund:800,jubilee:600,membership:0,envlope:0}},
+{name:"Tlangmawi",password:"pyd.tm2026",data:{totalMember:,target:1400,bamboo:100,project:100,fund:200,jubilee:200,membership:0,envlope:0}}
 ];
 let cur=null;
 const sel=document.getElementById('userSelect');
